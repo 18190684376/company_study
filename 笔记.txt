@@ -1,0 +1,115 @@
+2020.4.26
+视频地址：
+https://www.imooc.com/video/17966
+
+1.1 配置，名称和邮箱
+git config --global user.name "coder"
+git config --global user.email "845451078@qq.com"
+	查看配置是否成功
+git config --list
+
+下载source tree 并使用,就相当于一个git的可视化工具
+
+账号：845451078yqh  或者  845451078@qq.com
+密码：845451078yqh
+邮箱：845451078@qq.com
+
+初始化版本库：在文件下建立个仓库
+git init 
+
+1.2 创建仓库
+
+用source tree创建
+直接用可视化，点击+就可以，创建本地项目
+
+pwd 显示路径
+mkdir 创建文件夹
+
+显示所有文件，包括隐藏文件
+ls -a 
+ll -a
+
+把输出的内容追加到文件中:
+echo "git report2" >> test.txt
+
+查看文件内容：
+cat test.txt
+
+git add test.txt
+git commit -m "add test.txt"
+
+2.1 git 工作流
+	
+使用source tree 操作
+	修改了之后，在source tree中，会自动检测到文件的变化，然后，分两步，提交到暂存区，然后提交到仓库。
+	提交到暂存区的文件，可以直接丢弃，达到还原效果。	
+
+	如果提交到了仓库，但是还是想还原。
+	1.找到上一个history，然后点击“重置当前分支到此次提交”
+	2.在文件状态，未暂存文件，点击丢弃（修改文件）或移除（创建文件）
+
+使用git命令：
+	git status 
+	git add test.php
+	git commit test.php -m "add a file"
+
+	同样：当文件add后，怎么撤回.
+	1. 暂存区，回滚到工作区 
+	git reset head test.php
+	2. 清除工作区的文件
+	git checkout -- test.php
+	让这个文件回到最近一次git commit或git add时的状态。未add，也未commit之前。
+
+	同样，当文件添加和提交到仓库后，怎么还原：
+	1. 获取版本号：
+		git log 
+	2. 返回到指定的版本	
+		git reset --hard 1094a
+
+	删除仓库里面的文件：	
+		git rm test.php		删除仓库里的文件
+		git commit 			并提交，才会生效
+
+6.1 
+3.1 远程仓库
+	1.
+	首先在远程建立ssh，然后在本地用命令：
+	ssh-keygen -t rsa -C "youremail@example.com"
+	创建ssh，之后复制到远程，进行匹配
+	命令： cat id_rsa.pub 展示文本信息
+	2.
+	匹配后，就直接再本地用命令测试是否匹配成功：
+	命令：  ssh -T git@github.com
+	3. 添加远程仓库，在网页上操作
+		添加成功后腰，两大操作：
+			1. 把本地的仓库提交上去
+			2. 把线上的仓库克隆下来
+
+		1. 按着步骤来：
+			第一次连接远程仓库：
+			echo "# mooc_learn" >> README.md 	建立文件
+			git init						初始化仓库
+			git add README.md 				添加到仓库
+			git commit -m "first commit" 		提价到仓库
+			git remote add origin git@github.com:18190684376/mooc_learn.git 	连接到远程仓库
+			git push -u origin master 	首次推送到远程仓库
+	              
+			以后的操作：
+			1. vim test.txt
+			2. git add test.txt
+			3. git commit -m 'senced push'
+			4. git push
+
+			README.md文件里面的内容会直接展示在网页上，相当于一个介绍
+
+	4. 链接刚刚建立的仓库
+	5. 提交到远程仓库
+
+
+
+
+
+
+
+
+
