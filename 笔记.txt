@@ -106,6 +106,21 @@ git commit -m "add test.txt"
 	5. 提交到远程仓库
 
 6.3 标签管理
+	打标签，方便查询、回滚之类的。
+	通过标签的回滚，而不是分支。
+
+	先关命令：
+	git tag						查看所有标签
+	git tag name				创建标签
+	git tag -a name -m 'comment' 指定提交信息
+	git tag -d name 			删除标签	
+	git oush origin name		标签发布
+
+	ls -a
+
+	git tag
+	git tag v1.0.1
+	git push origin v1.0.1
 
 
 
